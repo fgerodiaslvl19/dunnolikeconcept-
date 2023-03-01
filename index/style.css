@@ -1,0 +1,28 @@
+input{
+    display: block;
+    margin-top: 17px;
+}
+button{
+    margin-top: 10px;
+    position: relative;
+}
+#warningSignOne{
+    align-items: center;
+    justify-content: center;
+    background-color: crimson;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    white-space: nowrap;
+    position: absolute;
+    left: 400px;
+    width: 500px;
+    height: 100px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: all 0.05s none 0.15s;
+}

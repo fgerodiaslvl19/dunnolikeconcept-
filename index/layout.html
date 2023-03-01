@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Web layout</title>
+    <style>
+        body{
+            align-items: center;
+            justify-content: space-around;
+            display: flex;
+        }
+        .main-container{
+            border-radius: 4%;
+            box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.50);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-top: 10px;
+            width: 500px;
+            height: 93vh;
+            z-index: 1;
+        }
+        .sign-up{
+            font-family: Inter;
+            font-size: 24px;
+            margin-top: 80px;
+            margin-bottom: 30px;
+            margin-left: 10.3vw;
+        }
+        #companyLogo{
+            margin-left: 15px;
+            height: 45px;
+            margin-bottom: -5px;
+        }
+        .first-middlename-container{
+            column-gap: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 0px;
+            margin-top: 70px;
+            margin-left: 37px;
+            position: relative;
+            max-width: 430px;
+        }
+        .dialog-hover-container{
+            align-items: center;
+            justify-content: stretch;
+            display: flex;
+            position: relative;
+            max-width: 180px;
+        }
+        #firstName, #middleName, #lastName{
+            background-color: transparent;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom-color: gray;
+            border-bottom-style: solid;
+            font-family: Inter;
+            font-size: medium;
+            margin: 0;
+            max-width: 180px;
+            outline: none;
+            padding-left: 7px;
+            height: 33px;
+            transition: all 0.09s ease 0s;
+            z-index: 1;
+        }
+        #birthDate{
+            background-color: transparent;
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom-color: gray;
+            border-bottom-style: solid;
+            font-family: Inter;
+            font-size: medium;
+            margin: 0;
+            max-width: 180px;
+            outline: none;
+            height: 34px;
+            transition: all 0.09s ease 0s;
+            z-index: 1;
+        }
+        #firstName::placeholder, #middleName::placeholder, #lastName::placeholder{
+            transition: all 0.15s ease 0s;
+        }
+        .name-dialog{
+            color: #10a37f;
+            display: inline-block;
+            font-family: Inter;
+            font-weight: 400;
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+            left: 16px;
+            bottom: -6px;
+            transition: all 0.15s ease 0s;
+        }
+        #firstName:hover, #middleName:hover, #lastName:hover{
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            border-color: #10a37f;
+            border-style: solid;
+            border-width: 2px;
+            padding: 0%;
+            padding-left: 8px;
+        }
+        #birthDate:hover{
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom: none;
+            border-color: #10a37f;
+            border-style: solid;
+            border-width: 2px;
+            padding: 0%;
+            padding-left: 8px;
+            padding-right: 4px;
+            height: 33px;
+        }
+        .dialog-hover-container:hover #firstName::placeholder{
+            opacity: 0;
+        }
+        .dialog-hover-container:hover #middleName::placeholder{
+            opacity: 0;
+        }
+        .dialog-hover-container:hover #lastName::placeholder{
+            opacity: 0;
+        }
+        .dialog-hover-container:hover .name-dialog{
+            background-color: white;
+            font-size: 11px;
+            bottom: 18px;
+            left: 6px;
+            opacity: 1;
+            z-index: 1;
+            padding-left: 3px;
+            padding-right: 3px;
+        }
+        #nxtBtn{
+            background-color: transparent;
+            border: none;
+            display: inline-block;
+            font-family: Inter;
+            font-weight: 500;
+            font-size: 25px;
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+        }
+        #nxtBtn::before{
+            content: "▶";
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.50);
+            transition: all 0.15s ease;
+        }
+        #nxtBtn:hover{
+            right: 29px;
+            bottom: 39px;
+            transition: left 0.15s ease;
+        }
+        #nxtBtn:hover::before{
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.50);
+            background-color: #10a37f;
+            border-radius: 3px;
+            color: white;
+            content: "NEXT ▶";
+            font-size: 15px;
+            padding: 9px;
+            white-space: nowrap;
+            width: 100px;
+            transition: all 0.15s ease;
+            text-shadow: none;
+        }
+        #nxtBtn:active::before{
+            box-shadow: none;
+            background-color: #0c8365;
+            color: rgb(222, 222, 222);
+            transition: all 0.15s ease;
+        }
+        #nxtBtn:active{
+            right: 28px;
+            bottom: 38px;
+        }
+    </style>
+</head>
+<body>
+    <main class="main-container">
+        <h1 class="sign-up">SIGN UP with <br><img src="OpenAI_Logo.svg.png" id="companyLogo"/></h1>
+        <div class="first-middlename-container">
+            <div class="dialog-hover-container">
+                <input type="text" id="firstName" placeholder="First Name"/>
+                <p class="name-dialog">First Name</p>
+            </div>
+            <div class="dialog-hover-container">
+                <input type="text" id="middleName" placeholder="Middle Name"/>
+                <p class="name-dialog">Middle Name</p>
+            </div>
+        </div>
+        <div class="first-middlename-container">
+            <div class="dialog-hover-container">
+                <input type="text" id="lastName" placeholder="Last Name"/>
+                <p class="name-dialog">Last Name</p>
+            </div>
+            <div class="dialog-hover-container">
+                <input type="date" id="birthDate"/>
+                <p class="name-dialog">Birthdate</p>
+            </div>
+        </div>
+        <button type="button" id="nxtBtn"></button>
+    </main>
+</body>
+</html>
